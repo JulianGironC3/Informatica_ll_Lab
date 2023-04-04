@@ -1,9 +1,23 @@
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
 int main()
 {
-    cout << "Hello World!" << endl;
-    return 0;
+  int n,op;
+
+
+  cout << "Ingrese un numeros semilla: ";
+  cin >> n;
+
+  cout << "¿Que metodo quiere utilizar?: ";
+  cin >> op;
+
+  //Primer metodo
+  //Usando Char
+
+
+
+
 }
