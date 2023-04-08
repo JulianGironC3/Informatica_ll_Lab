@@ -6,7 +6,7 @@
 using namespace std;
 
 void saca_a_binario(char t[], int tam);
-void codifica_archivo(char t[], int tam);
+void codifica_archivo(char t[], int tam, int n);
 
 int main()
 {
@@ -92,7 +92,61 @@ void saca_a_binario(char t[], int tam){
 
 void codifica_archivo(char t[], int tam, int n){
 
+   char ttemp[tam], tcon[n];
+   int ct=0,nc=0,nu=0;
+
+   for(int i=0;i<tam;i++) ttemp[i]=t[i]; //hace copia
 
 
+   //Fallaaaaaaaaaaaaaa
+   while(t[ct]!='\0'){
+
+       for (int i=ct;i<ct+n;i++) {
+           tcon[ct-i]=t[ct];
+           if (tcon[ct-i]=='0') {
+               nc++;
+               ct++;}
+           else if (tcon[ct-i]=='1') {
+               nu++;
+               ct++;}
+           else break;
+       }
+       //Si hay igual cantidad de 1s y 0s se invierte cada bit del grupo
+       if (nc==nu){
+            for(int i=0;i<n;i++){
+               switch (tcon[i]) {
+                case '1': tcon[i]='0';
+                   break;
+                case '0': tcont[i]='1';
+                default:
+                   break;
+               }
+            }
+       }
+
+       //si hay mayor cantidad de 0s se invierte cada 2bits
+       if (nc>nu){
+           switch (t[ct+2]) {
+            case '1': ttemp[ct+2]='0';
+               break;
+            case '0': ttemp[ct+2]='1';
+            default:
+               break;
+           }
+
+       }
+
+       //si hay mayor cantidad de 1s se invierte cada 3bits
+       if (nu>nc){
+           switch (t[ct+3]) {
+            case '1': ttemp[ct+3]='0';
+               break;
+            case '0': ttemp[ct+3]='1';
+            default:
+               break;
+           }
+
+
+   }
 
 }
