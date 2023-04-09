@@ -1,40 +1,66 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include <string>
+#include <string.h>
 
 using namespace std;
+const int tam=256 ;
+char* a;
+char t[tam]; //Archivo binario
+char tcod1[tam]; //Binario codificado 1
+char tcod2[tam]; //Binario codificado 2
 
-void saca_a_binario(char t[], int tam);
+
+
+void saca_a_binario(char t[], int tam, int n);
+void primer_metodo(char tcod1[], int tam, int n);
+void segundo_metodo(char tcod2[], int tam, int n);
 void codifica_archivo(char t[], int tam, int n);
+void metodos_de_codificacion_archivo(char t[], int tam, int n);
 
 int main()
 {
-  int n,op;
-  const int tam=256 ;
-  char* a;
-  char t[tam];
-  char tcod[tam];
+
+    int n,op;
+
+    cout << "Ingrese un numeros semilla: ";
+    cin >> n;
+
+    cout << "¿Que metodo quiere utilizar?: ";
+    cin >> op;
+
+    //Primer metodo
+    //Usando Char
+    saca_a_binario(t,tam,n); //Funcion convierte texto a binario
+
+    for(int i=0;i<tam;i++) {
+        tcod1[i]=t[i];
+        tcod2[i]=t[i];
+    } //hace copia
+
+    codifica_archivo(tcod1,tam,n); //metodo1
+
+    segundo_metodo(tcod2, tam, n);
+
+//-----------------------------------------------------------
 
 
-  cout << "Ingrese un numeros semilla: ";
-  cin >> n;
 
-  cout << "¿Que metodo quiere utilizar?: ";
-  cin >> op;
+    /*
+    char nombre_archivo[10];
+    cout<< "Accediendo como usuario administrador...";
+    cin;
 
-  //Primer metodo
-  //Usando Char
-  saca_a_binario(t,tam); //Funcion convierte texto a binario
-  for(int i=0;i<tam;i++) tcod[i]=t[i]; //hace copia
 
-  codifica_archivo(tcod,tam,n);
+    cout << "ingrese el nombre del archivo: ";
+    cin.getline(nombre_archivo,10,'\n');*/
 
+    metodos_de_codificacion_archivo(t,tam,n);
 
 
 }
 
-void saca_a_binario(char t[], int tam){
+void saca_a_binario(char t[], int tam, int n){
 
     char letra,ttemp[10];
     int decimal, residuo,cociente, binario,i,j=0;
@@ -92,20 +118,47 @@ void saca_a_binario(char t[], int tam){
 
 }
 
-void codifica_archivo(char tcod[], int tam, int n){
+void primer_metodo(char t[], int tam, int n){
+
+
+}
+
+
+void segundo_metodo(char tcod2[], int tam, int n){
+
+    char ttemp[n], tcon[n];
+    int ct=0;
+
+    while(tcod2[ct]!='\0'){
+        if (tcod2[ct]!='1' and tcod2[ct]!='0') break;
+
+        for (int i=0;i<n;i++) {
+            tcon[i]=tcod2[ct];
+            ttemp[i]=tcon[i];
+            ct++;
+        }
+
+            for (int i=1;i<n;i++) {
+                ttemp[i]=tcon[i-1];
+            }
+            ttemp[0]=tcon[n-1];
+
+    }
+}
+
+void codifica_archivo(char tcod1[], int tam, int n){
 
    char ttemp[tam], tcon[n];
    int ct=0;
 
-   for(int i=0;i<tam;i++) ttemp[i]=tcod[i]; //hace copia
+   for(int i=0;i<tam;i++) ttemp[i]=tcod1[i]; //hace copia
 
 
-   //Fallaaaaaaaaaaaaaa
-   while(tcod[ct]!='\0'){
-       if (tcod[ct]!='1' and tcod[ct]!='0') break;
+   while(tcod1[ct]!='\0'){
+       if (tcod1[ct]!='1' and tcod1[ct]!='0') break;
         int nc=0,nu=0;
        for (int i=0;i<n;i++) {
-           tcon[i]=tcod[ct];
+           tcon[i]=tcod1[ct];
            if (tcon[i]=='0') {
                nc++;
                ct++;}
@@ -160,7 +213,13 @@ void codifica_archivo(char tcod[], int tam, int n){
 
        }
        //Agrega tcon al char codificado
-       for (int i=0;i<n;i++) tcod[(ct-n)+i]=tcon[i];
+       for (int i=0;i<n;i++) tcod1[(ct-n)+i]=tcon[i];
 
-    }
+        }
+}
+
+void metodos_de_codificacion_archivo(char t[], int tam, int n){
+
+
+
 }
