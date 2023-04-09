@@ -14,6 +14,7 @@ int main()
   const int tam=256 ;
   char* a;
   char t[tam];
+  char tcod[tam];
 
 
   cout << "Ingrese un numeros semilla: ";
@@ -25,8 +26,9 @@ int main()
   //Primer metodo
   //Usando Char
   saca_a_binario(t,tam); //Funcion convierte texto a binario
+  for(int i=0;i<tam;i++) tcod[i]=t[i]; //hace copia
 
-  codifica_archivo(t,tam,n);
+  codifica_archivo(tcod,tam,n);
 
 
 
@@ -90,23 +92,24 @@ void saca_a_binario(char t[], int tam){
 
 }
 
-void codifica_archivo(char t[], int tam, int n){
+void codifica_archivo(char tcod[], int tam, int n){
 
    char ttemp[tam], tcon[n];
-   int ct=0,nc=0,nu=0;
+   int ct=0;
 
-   for(int i=0;i<tam;i++) ttemp[i]=t[i]; //hace copia
+   for(int i=0;i<tam;i++) ttemp[i]=tcod[i]; //hace copia
 
 
    //Fallaaaaaaaaaaaaaa
-   while(t[ct]!='\0'){
-
-       for (int i=ct;i<ct+n;i++) {
-           tcon[ct-i]=t[ct];
-           if (tcon[ct-i]=='0') {
+   while(tcod[ct]!='\0'){
+       if (tcod[ct]!='1' and tcod[ct]!='0') break;
+        int nc=0,nu=0;
+       for (int i=0;i<n;i++) {
+           tcon[i]=tcod[ct];
+           if (tcon[i]=='0') {
                nc++;
                ct++;}
-           else if (tcon[ct-i]=='1') {
+           else if (tcon[i]=='1') {
                nu++;
                ct++;}
            else break;
@@ -117,8 +120,9 @@ void codifica_archivo(char t[], int tam, int n){
                switch (tcon[i]) {
                 case '1': tcon[i]='0';
                    break;
-                case '0': tcont[i]='1';
-                default:
+                case '0': tcon[i]='1';
+                   break;
+                default: //si no hay 1 o 0 es porque se salio del rango de tcon
                    break;
                }
             }
@@ -126,27 +130,37 @@ void codifica_archivo(char t[], int tam, int n){
 
        //si hay mayor cantidad de 0s se invierte cada 2bits
        if (nc>nu){
-           switch (t[ct+2]) {
-            case '1': ttemp[ct+2]='0';
-               break;
-            case '0': ttemp[ct+2]='1';
-            default:
-               break;
+
+           for (int i=0;i+1<=n;i+=2) {
+               switch (tcon[i+1]) {
+                case '1': tcon[i+1]='0';
+                   break;
+                case '0': tcon[i+1]='1';
+                   break;
+                default: //si no hay 1 o 0 es porque se salio del rango de tcon
+                   break;
+               }
            }
 
        }
 
        //si hay mayor cantidad de 1s se invierte cada 3bits
        if (nu>nc){
-           switch (t[ct+3]) {
-            case '1': ttemp[ct+3]='0';
-               break;
-            case '0': ttemp[ct+3]='1';
-            default:
-               break;
+           for (int i=0;i<n;i+=3) {
+               switch (tcon[i+2]) {
+                case '1': tcon[i+2]='0';
+                   break;
+                case '0': tcon[i+2]='1';
+                   break;
+                default: //si no hay 1 o 0 es porque se salio del rango de tcon
+                   break;
+               }
            }
 
 
-   }
+       }
+       //Agrega tcon al char codificado
+       for (int i=0;i<n;i++) tcod[(ct-n)+i]=tcon[i];
 
+    }
 }
