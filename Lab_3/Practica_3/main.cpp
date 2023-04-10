@@ -2,6 +2,7 @@
 #include <fstream>
 #include <sstream>
 #include <string.h>
+#include <math.h>
 
 using namespace std;
 //Variables globales
@@ -12,7 +13,7 @@ char tcod1[tam]; //Binario codificado 1
 char tcod2[tam]; //Binario codificado 2
 
 
-
+char convertir_a_letra(char ttcon[], int n);
 void saca_a_binario(char t[], int tam, int n);
 void primer_metodo(char tcod1[], int tam, int n);
 void segundo_metodo(char tcod2[], int tam, int n);
@@ -30,6 +31,7 @@ int main()
     char tcod[tam],treal[256]; //Binario Codificado segun el metodo
     int n,op;
     char r;
+    char tcop[tam];
 
     cout << "Ingrese un numeros semilla: ";
     cin >> n;
@@ -37,6 +39,7 @@ int main()
     //Primer metodo
     //Usando Char
     saca_a_binario(t,tam,n); //Funcion convierte texto a binario
+    cout << "Archivo inicial: "<<endl;
     for(int i=0;i<tam;i++){
         treal[i]=t[i]; //hace copia
         cout << treal[i];}
@@ -50,19 +53,23 @@ int main()
     codifica_archivo(tcod1,tam,n); //metodo1
     segundo_metodo(tcod2, tam, n); //metodo 2
 
-    cout << "¿Que metodo quiere utilizar?1/2: ";
+    cout << "Que metodo quiere utilizar?1/2: ";
     cin >> op;
-
+    cout << "Archivo codificado con metodo";
     if (op==1){
-        for(int i=0;i<tam;i++){ tcod[i]=tcod1[i];
-        cout << tcod[i];}
+        cout <<" 1: "<< endl;
+        for(int i=0;i<tam;i++) tcod[i]=tcod1[i];
     }
-    else if (op==2){
-        for(int i=0;i<tam;i++){
 
-            tcod[i]=tcod2[i];
-        }
+    else if (op==2){
+        cout <<" 2: "<< endl;
+        for(int i=0;i<tam;i++)tcod[i]=tcod2[i];
+
+
     }
+    for(int i=0;i<tam;i++) tcop[i]=tcod[i];
+    for(int i=0;i<tam;i++) cout << tcop[i];
+
     escribir_texto_codificado(tcod,tam);
 
 
@@ -74,15 +81,52 @@ int main()
 
 
     //
-    Aplicacion();
+    //Aplicacion();
 
 
     //metodos_de_codificacion_archivo(t,tam,n);
 
 
 }
+char convertir_a_letra(char ttcon[],int n){
+    //Por solucionar
+    string binario;
+    char ttconcop[n];
+    int ttconn[n];//binario con numero
+    for (int i=0;i<n;i++) ttconcop[i]=ttcon[i];
+    strcpy(ttcon,binario.c_str());
+    char letra;
+    int j=0;
+
+
+    while(ttconcop[j]=='0' or ttconcop[j]=='1'){
+        if (ttconcop[j]=='0') ttconn[j]=0;
+        else if (ttconcop[j]=='1') ttconn[j]=1;
+        j++;
+    }
+    int dig=n-1,decimal=0;
+    for (int i=0;i<n;i++){
+        decimal=(ttconcop[i]-'0')*pow(2,dig);
+        dig--;
+
+    }
+
+
+
+
+
+
+}
 
 void saca_a_binario(char t[], int tam, int n){
+
+    /*
+    ofstream clavesal;//Archivo donde se guarda la contraseña ingresada a comparar
+    clavesal.open();
+    if(clavesal.is_open()) cout<< "Archivo abierto"<< endl;
+    else cout << "Archivo no abierto."<<endl;*/
+
+
 
     char letra,ttemp[10];
     int decimal, residuo,cociente, binario,i,j=0;
@@ -90,7 +134,7 @@ void saca_a_binario(char t[], int tam, int n){
     texto.open("Archivo.txt");
 
     //comprobamos que este abierto
-    if(texto.is_open()) cout<< "Archivo abierto"<< endl;
+    if(texto.is_open()) cout<< endl<< "Archivo abierto"<< endl;
     else cout << "Archivo no abierto."<<endl;
 
 
@@ -263,6 +307,7 @@ void escribir_texto_codificado(char tcod[],int tam){
 void Decodifica_texto(char tcod[],int op,int n){
     char ttcon[n],tdcod[256],treal[256];
     int ct=0;
+    char letra;
 
     for(int i=0;i<tam;i++) treal[i]=t[i];
 
@@ -327,18 +372,22 @@ void Decodifica_texto(char tcod[],int op,int n){
 
             }
             //Agrega tcon al char codificado
+
             for (int i=0;i<n;i++){
                 tdcod[(ct-n)+i]=ttcon[i];
-                cout<< ttcon[i];}
 
+                //cout<< ttcon[i];}
+            //letra=convertir_a_letra(ttcon,n);
              }
 
+
     }
+
+}
     else if (op==2){
         char ttemp[n], tcon[n];
-        int ct=0;
 
-        for (int i=0;i<tam;i++) cout << tcod[i];
+        //for (int i=0;i<tam;i++) cout << tcod[i];
 
         while(tcod[ct]!='\0'){
             if (tcod[ct]!='1' and tcod[ct]!='0') break;
@@ -357,21 +406,60 @@ void Decodifica_texto(char tcod[],int op,int n){
                 for (int i=0;i<n;i++){
 
                     tdcod[(ct-n)+i]=ttemp[i];
-                cout << tdcod[ct-n+i];
+                    //if (ttemp[i]=='0') tnum[i]=0;
+                    //else if (ttemp[i]=='1') tnum[i]=1;
+                //cout << tdcod[ct-n+i];
                 }
+                //letra=convertir_a_letra(ttemp,n);
         }
     }
+
+        cout << "Archivo decodificado"<< endl;
+        for (int i=0;i<ct;i++){
+            cout << tdcod[i];
+        } cout<< endl;
+
 }
 
 void Aplicacion(){
-
+    /*
     char nombre_archivo[10];
     cout<< "Accediendo como usuario administrador...";
     cin;
 
 
     cout << "ingrese el nombre del archivo: ";
-    cin.getline(nombre_archivo,10,'\n');
+    cin.getline(nombre_archivo,10,'\n'); */
+    int n, op;
+    char cl[100];
+    ifstream key;
+    string clave;
+    string claved;
+    char clu [256];
+    key.open("sudo.txt");// ahi esta la clave del usuario
 
+    if(key.is_open()) cout<< "Archivo abierto"<< endl;
+    else cout << "Archivo no abierto."<<endl;
+
+    getline(key,clave);
+    getline(key,clave);//Aqui guarda la clave encriptada
+
+    cout << "Ingrese una la semilla n: ";
+    cin >> n;
+    cout << "Ingrese el metodo de encriptacion: ";
+    cin >> op;
+
+    strcpy(cl,clave.c_str());
+    //Decodifica_texto(cl,op,n);
+    cout << "ingrese clave de usuario: ";
+    cin >> clu;
+     if (op==1){
+         saca_a_binario(clu,256,n);
+         codifica_archivo(cl,256,n);
+     }
+     else if (op==2){
+         saca_a_binario(clu,256,n);
+         segundo_metodo(clu,256,n);
+     }
 
 }
