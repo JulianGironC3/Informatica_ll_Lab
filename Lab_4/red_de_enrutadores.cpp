@@ -13,6 +13,7 @@ red_de_enrutadores::red_de_enrutadores()
 void red_de_enrutadores::agregar_enrutador(enrutador *enrutador)
 {
     enrutadores[enrutador->get_id()] = enrutador;
+    //enrutadores.insert(std::make_pair(enrutador,enrutador->get_id()));
 }
 
 void red_de_enrutadores::remover_enrutador(string idenrutador)
@@ -45,4 +46,5 @@ vector<string> red_de_enrutadores::encontrar_camino(string idenrutador1, string 
 {
 
 }
+
 

@@ -13,7 +13,7 @@ int main()
     enrutador B ("B");
     enrutador C ("C");
     enrutador D ("D");
-    cout << &A;
+    //cout << &A;
     internet.agregar_enrutador(&A);
     internet.agregar_enrutador(&B);
     internet.agregar_enrutador(&C);
@@ -23,6 +23,7 @@ int main()
     internet.agregar_enlace("D","C",2);
     internet.agregar_enlace("C","A",10);
 
+    //cout << internet.enrutadores.getenrutadores();
 
 
 }

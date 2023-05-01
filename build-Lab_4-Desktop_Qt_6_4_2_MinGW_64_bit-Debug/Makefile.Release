@@ -112,11 +112,11 @@ release/enrutador.o: ../Lab_4/enrutador.cpp ../Lab_4/enrutador.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\enrutador.o ..\Lab_4\enrutador.cpp
 
 release/main.o: ../Lab_4/main.cpp ../Lab_4/red_de_enrutadores.h \
-		../Lab_4/router.h
+		../Lab_4/enrutador.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\main.o ..\Lab_4\main.cpp
 
 release/red_de_enrutadores.o: ../Lab_4/red_de_enrutadores.cpp ../Lab_4/red_de_enrutadores.h \
-		../Lab_4/router.h
+		../Lab_4/enrutador.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\red_de_enrutadores.o ..\Lab_4\red_de_enrutadores.cpp
 
 ####### Install

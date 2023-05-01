@@ -112,11 +112,11 @@ debug/enrutador.o: ../Lab_4/enrutador.cpp ../Lab_4/enrutador.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\enrutador.o ..\Lab_4\enrutador.cpp
 
 debug/main.o: ../Lab_4/main.cpp ../Lab_4/red_de_enrutadores.h \
-		../Lab_4/router.h
+		../Lab_4/enrutador.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\main.o ..\Lab_4\main.cpp
 
 debug/red_de_enrutadores.o: ../Lab_4/red_de_enrutadores.cpp ../Lab_4/red_de_enrutadores.h \
-		../Lab_4/router.h
+		../Lab_4/enrutador.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\red_de_enrutadores.o ..\Lab_4\red_de_enrutadores.cpp
 
 ####### Install
