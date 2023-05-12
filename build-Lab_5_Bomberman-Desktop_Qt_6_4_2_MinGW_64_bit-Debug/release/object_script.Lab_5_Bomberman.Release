@@ -1,0 +1,11 @@
+release/bomba.o
+release/enemigo.o
+release/jugador.o
+release/main.o
+release/mainwindow.o
+release/obstaculo.o
+release/obstaculodes.o
+release/qrc_imagen.o
+release/moc_jugador.o
+release/moc_mainwindow.o
+release/moc_obstaculo.o

@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Images/bom.png</file>
+        <file>Images/bomberman_art.png</file>
+        <file>Images/playmove.png</file>
+        <file>Images/unDestroyableBlock.png</file>
+    </qresource>
+</RCC>
