@@ -2,6 +2,8 @@
 #include "ui_mainwindow.h"
 #include <iostream>
 
+
+
 using namespace std;
 
 MainWindow::MainWindow(QWidget *parent)
@@ -20,84 +22,150 @@ MainWindow::MainWindow(QWidget *parent)
     player1->posicion(0,0);
     scene->addItem(player1);
 
-/*
-    rect = new QGraphicsRectItem(-25,-25,50,50);
-    rect->setPos(50*2,25);
-    scene->addItem(rect);
-
-    rect1 = new QGraphicsRectItem(-25,-25,50,50);
-    rect1->setPos(50*4,25);
-    scene->addItem(rect1);
-
-    rect2 = new QGraphicsRectItem(-25,-25,50,50);
-    rect2->setPos(50*6,25);
-    scene->addItem(rect2);
-
-    rect3 = new QGraphicsRectItem(-25,-25,50,50);
-    rect3->setPos(50*8,25);
-    scene->addItem(rect3);
-
-
-    rect4 = new QGraphicsRectItem(-25,-25,50,50);
-    rect4->setPos(50*10,25);
-    scene->addItem(rect4);
-
-
-    rect5 = new QGraphicsRectItem(-25,-25,50,50);
-    rect5->setPos(50*12,25);
-    scene->addItem(rect5);
-
-    rect6 = new QGraphicsRectItem(-25,-25,50,50);
-    rect6->setPos(0,200);
-    scene->addItem(rect6) */
+    //se crea un vector con objetos obstaculos para despues mostrarlos
+    for(int i=1; i<7;i++){
+        solidos.push_back(new obstaculo);
+        solidos.last()->posicion(50*i*2,0);
+        scene->addItem(solidos.back());
+    }
 
     for(int i=1; i<7;i++){
-        solidos.append(new QGraphicsRectItem(-26,-25,50,50));
-        solidos.last()->setPos(50*i*2,25);
+        solidos.push_back(new obstaculo);
+        solidos.last()->posicion(50*i*2,50*1+55);
         scene->addItem(solidos.last());
 
     }
     for(int i=1; i<7;i++){
-        solidos.append(new QGraphicsRectItem(-26,-25,50,50));
-        solidos.last()->setPos(50*i*2,25*4+30);
+        solidos.push_back(new obstaculo);
+        solidos.last()->posicion(50*i*2,50*3+55);
         scene->addItem(solidos.last());
 
     }
     for(int i=1; i<7;i++){
-        solidos.append(new QGraphicsRectItem(-26,-25,50,50));
-        solidos.last()->setPos(50*i*2,25*8+35);
+        solidos.push_back(new obstaculo);
+        solidos.last()->posicion(50*i*2,50*6+5);
         scene->addItem(solidos.last());
 
     }
     for(int i=1; i<7;i++){
-        solidos.append(new QGraphicsRectItem(-26,-25,50,50));
-        solidos.last()->setPos(50*i*2,25*12+40);
+        solidos.push_back(new obstaculo);
+        solidos.last()->posicion(50*i*2,50*8+5);
         scene->addItem(solidos.last());
 
     }
     for(int i=1; i<7;i++){
-        solidos.append(new QGraphicsRectItem(-26,-25,50,50));
-        solidos.last()->setPos(50*i*2,25*16+50);
+        solidos.push_back(new obstaculo);
+        solidos.last()->posicion(50*i*2,50*11+5);
         scene->addItem(solidos.last());
 
     }
     for(int i=1; i<7;i++){
-        solidos.append(new QGraphicsRectItem(-26,-25,50,50));
-        solidos.last()->setPos(50*i*2,-25*11);
+        solidos.push_back(new obstaculo);
+        solidos.last()->posicion(50*i*2,50*15+5);
         scene->addItem(solidos.last());
 
     }
-    for(int i=1; i<7;i++){
-        solidos.append(new QGraphicsRectItem(-26,-25,50,50));
-        solidos.last()->setPos(50*i*2,-25*13);
-        scene->addItem(solidos.last());
-
-    }
-    obstaculo1 = new QGraphicsRectItem(-25,-25,50,50);
 
 
+    ///Aparecen obstaculos destructibles
+    int a=5; //variable de y
+for(int i=0; i<3;i++){//FILA 1
+    solidosdes.push_back(new obstaculodes);
+    if (a==405) a=455;
+    if (a==155) a=405;
+    if (a==5) a=155;
+    solidosdes.last()->posicion(0,a);
+    scene->addItem(solidosdes.back());
+}
+a=5;
+for(int i=0; i<3;i++){//FILA 2
+    solidosdes.push_back(new obstaculodes);
+    if(a==205) a=255;
+    if(a==155) a=205;
+    if(a==5) a=155;
+    solidosdes.last()->posicion(50,a);
+    scene->addItem(solidosdes.last());
 
 
+}
+a=0;
+for(int i=0; i<4;i++){//FILA 4
+    solidosdes.push_back(new obstaculodes);
+    solidosdes.last()->posicion(150,a);
+    if(a==105) a=205;
+    if(a==55) a=105;
+    if(a==0) a=55;
+
+    scene->addItem(solidosdes.last());
+
+}
+a=255;
+for(int i=1; i<7;i++){//FILA 6
+    solidosdes.push_back(new obstaculodes);
+    cout << a;
+    solidosdes.last()->posicion(250,a);
+    if(a==405) a=450;
+    if(a==305) a=405;
+    if(a==255) a=305;
+    scene->addItem(solidosdes.last());
+
+}
+a=50;
+for(int i=0; i<4;i++){//FILA 7
+    solidosdes.push_back(new obstaculodes);
+    solidosdes.last()->posicion(350,a);
+    if(a==205) a=255;
+    if(a==105) a=205;
+    if(a==50) a=105;
+    scene->addItem(solidosdes.last());
+}
+
+for(int i=0; i<1;i++){//FILA 8
+    solidosdes.push_back(new obstaculodes);
+    solidosdes.last()->posicion(400,350);
+    scene->addItem(solidosdes.last());
+
+}
+a=350;
+for(int i=0; i<3;i++){//FILA 9
+    solidosdes.push_back(new obstaculodes);
+    solidosdes.last()->posicion(450,a);
+    if(a==405) a=455;
+    if(a==350) a=405;
+    scene->addItem(solidosdes.last());
+}
+for(int i=1; i<7;i++){//FILA 10
+    solidosdes.push_back(new obstaculodes);
+    solidosdes.last()->posicion(500,50);
+    scene->addItem(solidosdes.last());
+
+}
+a=0;
+for(int i=0; i<3;i++){//FILA 11
+    solidosdes.push_back(new obstaculodes);
+    solidosdes.last()->posicion(550,a);
+    if(a==50) a=255;
+    if(a==0) a=50;
+    scene->addItem(solidosdes.last());
+
+}
+for(int i=0; i<1;i++){//FILA 1
+    solidosdes.push_back(new obstaculodes);
+    solidosdes.last()->posicion(600,50);
+    scene->addItem(solidosdes.last());
+
+}
+a=305;
+for(int i=0; i<4;i++){//FILA 11
+    solidosdes.push_back(new obstaculodes);
+    solidosdes.last()->posicion(650,a);
+    if(a==405) a=455;
+    if(a==355) a=405;
+    if(a==305) a=355;
+    scene->addItem(solidosdes.last());
+
+}
+//---------------------------------------------------------
 
 
 
@@ -110,45 +178,41 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::getsolidos()
-{
-    if(true)
-    {
 
-    }
-}
 
 void MainWindow::keyPressEvent(QKeyEvent *event){
+    if(event->key()==Qt::Key_Space) explotar();
 
     if(event->key()== Qt::Key_A && player1->getX()>0){//colisiona con los bordes
 
-        for (auto item: solidos){}
-            if(player1->collidesWithItem(obstaculo1)){
-                player1->setX(player1->getX()+10);
-            }
+        if (colicion()==true) player1->setX(player1->getX()+10);
 
-
-        //if (!player1->collidesWithItem(solidos.last())) player1->setX(player1->getX()-10);
-        //if (!jugador->collidesWithItem(rect)) jugador->setX(jugador->getX()-vel);
-       else player1->setX(player1->getX()-10);
-
+        player1->setX(player1->getX()-5);
     }
+
 
     if(event->key()== Qt::Key_S && player1->getY()<scene->height()-50){
         //if (!jugador->collidesWithItem(rect)) jugador->setY(jugador->getY()+vel);
-       player1->setY(player1->getY()+10);
+        if (colicion()==true) player1->setY(player1->getY()-10);
+
+         player1->setY(player1->getY()+5);
+
     }
 
     if(event->key()== Qt::Key_D && player1->getX()<scene->width()-50){
         //if (!jugador->collidesWithItem(rect)) jugador->setX(jugador->getX()+vel);
-       player1->setX(player1->getX()+10);
+        if (colicion()==true) player1->setX(player1->getX()-10);
+
+        player1->setX(player1->getX()+5);
     }
 
     if(event->key()== Qt::Key_W && player1->getY()>0){
         //if (!jugador->collidesWithItem(rect)) jugador->setY(jugador->getY()-vel);
-        player1->setY(player1->getY()-10);
+        if (colicion()==true) player1->setY(player1->getY()+10);
 
+        player1->setY(player1->getY()-5);
     }
+
 
     //if(event->key()== Qt::Key_M){
        // if(timer->isActive()) timer->stop();
@@ -156,5 +220,96 @@ void MainWindow::keyPressEvent(QKeyEvent *event){
 
 
 
-    player1->posicion();
+    player1->posicion(); //ACTUALIZA LA POSICION
+
+
+
+}
+
+bool MainWindow::colicion() //Colision con obstaculo
+{
+    for (auto item: solidos){
+       if(item->collidesWithItem(player1)) return true;
+
+    }
+    for (auto item: solidosdes){
+       if(item->collidesWithItem(player1)) return true;
+    }
+}
+
+void MainWindow::explotar()
+{
+    bombap= new bomba();
+    bombap->posicion(player1->getX(),player1->getY());
+    scene->addItem(bombap);
+
+    timer = new QTimer();
+    connect(timer, SIGNAL(timeout()), this, SLOT(explotarbum()));
+    timer->start(2500);
+}
+
+void MainWindow::explotarbum()
+{
+            timer->stop();
+            scene->removeItem(bombap);
+
+            bum.push_back(new explosion);
+            bum.last()->posicion(bombap->getX(),bombap->getY());
+            scene->addItem(bum.last());
+
+            bum.push_back(new explosion);
+            bum.last()->posicion(bombap->getX()+50,bombap->getY());
+            scene->addItem(bum.last());
+
+            bum.push_back(new explosion);
+            bum.last()->posicion(bombap->getX()+100,bombap->getY());
+            scene->addItem(bum.last());
+
+            bum.push_back(new explosion);
+            bum.last()->posicion(bombap->getX()-50,bombap->getY());
+            scene->addItem(bum.last());
+
+            bum.push_back(new explosion);
+            bum.last()->posicion(bombap->getX()-10,bombap->getY());
+            scene->addItem(bum.last());
+
+            bum.push_back(new explosion);
+            bum.last()->posicion(bombap->getX(),bombap->getY()+50);
+            scene->addItem(bum.last());
+
+            bum.push_back(new explosion);
+            bum.last()->posicion(bombap->getX(),bombap->getY()+100);
+            scene->addItem(bum.last());
+
+            bum.push_back(new explosion);
+            bum.last()->posicion(bombap->getX(),bombap->getY()-50);
+            scene->addItem(bum.last());
+
+            bum.push_back(new explosion);
+            bum.last()->posicion(bombap->getX(),bombap->getY()-100);
+            scene->addItem(bum.last());
+
+
+            QTimer *timer2=new QTimer();
+            connect(timer2,SIGNAL(timeout()),this, SLOT(removerbum()));
+            timer2->start(1500);
+
+       //if (item->collidesWithItem(explosion)) scene->removeItem(item);
+
+}
+
+void MainWindow::removerbum()
+{
+    for(int i=0;i< bum.size(); i++){
+        for (int j=0; j < solidosdes.size();j++){
+        explosion *e= bum.at(i);
+        obstaculodes *o=solidosdes.at(i);
+
+        if(e->collidesWithItem(o)){
+            scene->removeItem(e);
+            scene->removeItem(o);
+
+        }
+    }
+}
 }

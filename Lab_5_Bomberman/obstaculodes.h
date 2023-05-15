@@ -1,11 +1,18 @@
 #ifndef OBSTACULODES_H
 #define OBSTACULODES_H
+#include <QObject>
+#include <QGraphicsRectItem>
 
-
-class obstaculodes
+class obstaculodes : public QObject, public QGraphicsPixmapItem
 {
+    Q_OBJECT
 public:
-    obstaculodes();
+    obstaculodes(QGraphicsItem* carr = 0);
+    void posicion(int x, int y);
+
+private:
+    QGraphicsRectItem *obdes;
+
 };
 
 #endif // OBSTACULODES_H

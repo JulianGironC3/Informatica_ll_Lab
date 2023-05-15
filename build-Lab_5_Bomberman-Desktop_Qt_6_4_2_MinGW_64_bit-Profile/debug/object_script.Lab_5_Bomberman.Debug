@@ -1,11 +1,15 @@
 debug/bomba.o
 debug/enemigo.o
+debug/explosion.o
 debug/jugador.o
 debug/main.o
 debug/mainwindow.o
 debug/obstaculo.o
 debug/obstaculodes.o
 debug/qrc_imagen.o
+debug/moc_bomba.o
+debug/moc_explosion.o
 debug/moc_jugador.o
 debug/moc_mainwindow.o
 debug/moc_obstaculo.o
+debug/moc_obstaculodes.o

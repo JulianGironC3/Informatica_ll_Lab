@@ -2,19 +2,18 @@
 #define OBSTACULO_H
 #include <QObject>
 #include <QGraphicsRectItem>
-#include <QPainter>
 
 
-class obstaculo: public QObject
+class obstaculo: public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
-    int tipoImagen=1;
-public:
-    obstaculo(int tipoimagen);
-    QRectF boundingRect() const; //necesario definirla, devuelve el rectangulo que encierra el objeto
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
 
-    void setTipoImagen(int value);
+public:
+    obstaculo(QGraphicsItem* carr = 0);
+    void posicion(int x, int y);
+
+private:
+    QGraphicsRectItem *rect;
 };
 
 #endif // OBSTACULO_H

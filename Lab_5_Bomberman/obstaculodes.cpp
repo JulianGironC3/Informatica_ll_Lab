@@ -1,6 +1,12 @@
 #include "obstaculodes.h"
 
-obstaculodes::obstaculodes()
-{
 
+obstaculodes::obstaculodes(QGraphicsItem *carr):QGraphicsPixmapItem(carr)
+{
+    setPixmap(QPixmap(":/Images/destroyableBlock.png"));
+}
+
+void obstaculodes::posicion(int x, int y)
+{
+    setPos(x,y);
 }

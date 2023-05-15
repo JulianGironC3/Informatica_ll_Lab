@@ -1,11 +1,18 @@
 #include "obstaculo.h"
 
 
-obstaculo::obstaculo(int tipoimagen)
+obstaculo::obstaculo(QGraphicsItem *carr):QGraphicsPixmapItem(carr)
 {
-    this->tipoImagen=tipoimagen;
+    setPixmap(QPixmap(":/Images/unDestroyableBlock.png"));
 }
 
+void obstaculo::posicion(int x, int y)
+{
+    setPos(x,y);
+}
+
+
+/*
 QRectF obstaculo::boundingRect() const
 {
     return QRectF(0,0,50,50);
@@ -21,4 +28,4 @@ void obstaculo::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
 void obstaculo::setTipoImagen(int value)
 {
 
-}
+}*/

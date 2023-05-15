@@ -9,6 +9,7 @@
 #include "jugador.h"
 #include "obstaculo.h"
 #include "obstaculodes.h"
+#include "bomba.h"
 #include <QList>
 #include <QGraphicsItem>
 
@@ -23,16 +24,25 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    void getsolidos();
     void keyPressEvent(QKeyEvent *event);
+    bool colicion();
+    void explotar();
+
+private slots:
+    void explotarbum();
+    void removerbum();
 
 private:
     Ui::MainWindow *ui;
     QGraphicsScene *scene;
     jugador *player1;
     QTimer *timer;
-    QList <QGraphicsRectItem*> solidos;
-    QGraphicsRectItem *obstaculo1;
+    QList <obstaculo*> solidos;
+    obstaculo *rect;
+    QList <obstaculodes*> solidosdes;
+    obstaculodes *obdes;
+    bomba *bombap;
+    QList <explosion* > bum;
 
     /*
     QGraphicsRectItem *rect;

@@ -1,6 +1,6 @@
 #include "jugador.h"
 
-jugador::jugador(QGraphicsItem *carr):QGraphicsPixmapItem(carr)
+jugador::jugador(QGraphicsItem *carr): QGraphicsPixmapItem(carr)
 {
     //imagen de 45x50
     setPixmap(QPixmap(":/Images/bom.png"));

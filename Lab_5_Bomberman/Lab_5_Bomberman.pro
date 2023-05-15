@@ -11,6 +11,7 @@ CONFIG += c++17
 SOURCES += \
     bomba.cpp \
     enemigo.cpp \
+    explosion.cpp \
     jugador.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -20,6 +21,7 @@ SOURCES += \
 HEADERS += \
     bomba.h \
     enemigo.h \
+    explosion.h \
     jugador.h \
     mainwindow.h \
     obstaculo.h \
@@ -35,3 +37,12 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     imagen.qrc
+
+DISTFILES += \
+    Images/bom.png \
+    Images/bomb.png \
+    Images/bomberman_art.png \
+    Images/destroyableBlock.png \
+    Images/fire.png \
+    Images/playmove.png \
+    Images/unDestroyableBlock.png

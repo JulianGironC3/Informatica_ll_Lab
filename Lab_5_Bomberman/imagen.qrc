@@ -4,5 +4,8 @@
         <file>Images/bomberman_art.png</file>
         <file>Images/playmove.png</file>
         <file>Images/unDestroyableBlock.png</file>
+        <file>Images/destroyableBlock.png</file>
+        <file>Images/bomb.png</file>
+        <file>Images/fire.png</file>
     </qresource>
 </RCC>
