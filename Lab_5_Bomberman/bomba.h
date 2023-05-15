@@ -10,7 +10,7 @@ class bomba:  public QObject, public QGraphicsPixmapItem
     Q_OBJECT
 public:
     bomba(QGraphicsItem* carr = 0);
-    void posicion(int _x,int _y);
+    void posicionb(int _x,int _y);
 
     int getX() const;
     void setX(int newX);

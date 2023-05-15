@@ -9,7 +9,7 @@ class explosion: public QObject, public QGraphicsPixmapItem
     Q_OBJECT
 public:
     explosion(QGraphicsItem *carr=0);
-    void posicion(int x,int y);
+    void posicionex(int x,int y);
 };
 
 #endif // EXPLOSION_H

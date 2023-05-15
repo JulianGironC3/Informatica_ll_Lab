@@ -8,6 +8,7 @@ release/obstaculo.o
 release/obstaculodes.o
 release/qrc_imagen.o
 release/moc_bomba.o
+release/moc_enemigo.o
 release/moc_explosion.o
 release/moc_jugador.o
 release/moc_mainwindow.o

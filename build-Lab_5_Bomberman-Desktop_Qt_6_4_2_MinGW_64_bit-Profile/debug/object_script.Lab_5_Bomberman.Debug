@@ -8,6 +8,7 @@ debug/obstaculo.o
 debug/obstaculodes.o
 debug/qrc_imagen.o
 debug/moc_bomba.o
+debug/moc_enemigo.o
 debug/moc_explosion.o
 debug/moc_jugador.o
 debug/moc_mainwindow.o

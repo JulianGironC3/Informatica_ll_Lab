@@ -6,7 +6,7 @@ obstaculodes::obstaculodes(QGraphicsItem *carr):QGraphicsPixmapItem(carr)
     setPixmap(QPixmap(":/Images/destroyableBlock.png"));
 }
 
-void obstaculodes::posicion(int x, int y)
+void obstaculodes::posicionod(int x, int y)
 {
     setPos(x,y);
 }

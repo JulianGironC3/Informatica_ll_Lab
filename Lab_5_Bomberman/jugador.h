@@ -4,7 +4,6 @@
 #include <QObject>
 #include <QGraphicsPixmapItem>
 #include <QGraphicsItem>
-#include <QKeyEvent>
 
 class jugador:  public QObject, public QGraphicsPixmapItem
 {
@@ -24,7 +23,6 @@ public:
     void posicion();
     void posicion(int newX, int newY);
 
-    void keyPressEvent(QKeyEvent *event);
 
 
 };

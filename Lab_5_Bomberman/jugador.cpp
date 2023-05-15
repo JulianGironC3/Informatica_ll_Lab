@@ -43,22 +43,3 @@ void jugador::posicion(int newX, int newY)
     setPos(x,y);
 }
 
-void jugador::keyPressEvent(QKeyEvent *event)
-{
-    if(event->key()==Qt::Key_A){
-        posicion(getX()-10,getY());
-    }
-    if (event->key()==Qt::Key_D){
-        setX(getX()+10);
-    }
-    if(event->key()==Qt::Key_W){
-        setY(getY()+10);
-    }
-    if (event->key()==Qt::Key_S){
-        setY(getY()-10);
-    }
-
-
-}
-
-

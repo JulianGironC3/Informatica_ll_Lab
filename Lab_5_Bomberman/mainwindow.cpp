@@ -22,59 +22,73 @@ MainWindow::MainWindow(QWidget *parent)
     player1->posicion(0,0);
     scene->addItem(player1);
 
+    enemigorand = new enemigo();
+    enemigorand->posicione(650,0);
+    scene->addItem(enemigorand);
     //se crea un vector con objetos obstaculos para despues mostrarlos
     for(int i=1; i<7;i++){
         solidos.push_back(new obstaculo);
-        solidos.last()->posicion(50*i*2,0);
+        solidos.last()->posiciono(50*i*2,0);
         scene->addItem(solidos.back());
     }
 
     for(int i=1; i<7;i++){
         solidos.push_back(new obstaculo);
-        solidos.last()->posicion(50*i*2,50*1+55);
+        solidos.last()->posiciono(50*i*2,50*1+55);
         scene->addItem(solidos.last());
 
     }
     for(int i=1; i<7;i++){
         solidos.push_back(new obstaculo);
-        solidos.last()->posicion(50*i*2,50*3+55);
+        solidos.last()->posiciono(50*i*2,50*3+55);
         scene->addItem(solidos.last());
 
     }
     for(int i=1; i<7;i++){
         solidos.push_back(new obstaculo);
-        solidos.last()->posicion(50*i*2,50*6+5);
+        solidos.last()->posiciono(50*i*2,50*6+5);
         scene->addItem(solidos.last());
 
     }
     for(int i=1; i<7;i++){
         solidos.push_back(new obstaculo);
-        solidos.last()->posicion(50*i*2,50*8+5);
+        solidos.last()->posiciono(50*i*2,50*8+5);
         scene->addItem(solidos.last());
 
     }
     for(int i=1; i<7;i++){
         solidos.push_back(new obstaculo);
-        solidos.last()->posicion(50*i*2,50*11+5);
+        solidos.last()->posiciono(50*i*2,50*11+5);
         scene->addItem(solidos.last());
 
     }
     for(int i=1; i<7;i++){
         solidos.push_back(new obstaculo);
-        solidos.last()->posicion(50*i*2,50*15+5);
+        solidos.last()->posiciono(50*i*2,50*15+5);
         scene->addItem(solidos.last());
 
     }
 
 
     ///Aparecen obstaculos destructibles
+    ///
+    ///
+
+        solidosdes.push_back(new obstaculodes);
+        solidosdes.last()->posicionod(50,0);
+        scene->addItem(solidosdes.last());
+
+
+
+
+
     int a=5; //variable de y
 for(int i=0; i<3;i++){//FILA 1
     solidosdes.push_back(new obstaculodes);
     if (a==405) a=455;
     if (a==155) a=405;
     if (a==5) a=155;
-    solidosdes.last()->posicion(0,a);
+    solidosdes.last()->posicionod(0,a);
     scene->addItem(solidosdes.back());
 }
 a=5;
@@ -83,7 +97,7 @@ for(int i=0; i<3;i++){//FILA 2
     if(a==205) a=255;
     if(a==155) a=205;
     if(a==5) a=155;
-    solidosdes.last()->posicion(50,a);
+    solidosdes.last()->posicionod(50,a);
     scene->addItem(solidosdes.last());
 
 
@@ -91,7 +105,7 @@ for(int i=0; i<3;i++){//FILA 2
 a=0;
 for(int i=0; i<4;i++){//FILA 4
     solidosdes.push_back(new obstaculodes);
-    solidosdes.last()->posicion(150,a);
+    solidosdes.last()->posicionod(150,a);
     if(a==105) a=205;
     if(a==55) a=105;
     if(a==0) a=55;
@@ -103,7 +117,7 @@ a=255;
 for(int i=1; i<7;i++){//FILA 6
     solidosdes.push_back(new obstaculodes);
     cout << a;
-    solidosdes.last()->posicion(250,a);
+    solidosdes.last()->posicionod(250,a);
     if(a==405) a=450;
     if(a==305) a=405;
     if(a==255) a=305;
@@ -113,7 +127,7 @@ for(int i=1; i<7;i++){//FILA 6
 a=50;
 for(int i=0; i<4;i++){//FILA 7
     solidosdes.push_back(new obstaculodes);
-    solidosdes.last()->posicion(350,a);
+    solidosdes.last()->posicionod(350,a);
     if(a==205) a=255;
     if(a==105) a=205;
     if(a==50) a=105;
@@ -122,28 +136,28 @@ for(int i=0; i<4;i++){//FILA 7
 
 for(int i=0; i<1;i++){//FILA 8
     solidosdes.push_back(new obstaculodes);
-    solidosdes.last()->posicion(400,350);
+    solidosdes.last()->posicionod(400,350);
     scene->addItem(solidosdes.last());
 
 }
 a=350;
 for(int i=0; i<3;i++){//FILA 9
     solidosdes.push_back(new obstaculodes);
-    solidosdes.last()->posicion(450,a);
+    solidosdes.last()->posicionod(450,a);
     if(a==405) a=455;
     if(a==350) a=405;
     scene->addItem(solidosdes.last());
 }
 for(int i=1; i<7;i++){//FILA 10
     solidosdes.push_back(new obstaculodes);
-    solidosdes.last()->posicion(500,50);
+    solidosdes.last()->posicionod(500,50);
     scene->addItem(solidosdes.last());
 
 }
 a=0;
 for(int i=0; i<3;i++){//FILA 11
     solidosdes.push_back(new obstaculodes);
-    solidosdes.last()->posicion(550,a);
+    solidosdes.last()->posicionod(550,a);
     if(a==50) a=255;
     if(a==0) a=50;
     scene->addItem(solidosdes.last());
@@ -151,14 +165,14 @@ for(int i=0; i<3;i++){//FILA 11
 }
 for(int i=0; i<1;i++){//FILA 1
     solidosdes.push_back(new obstaculodes);
-    solidosdes.last()->posicion(600,50);
+    solidosdes.last()->posicionod(600,50);
     scene->addItem(solidosdes.last());
 
 }
 a=305;
 for(int i=0; i<4;i++){//FILA 11
     solidosdes.push_back(new obstaculodes);
-    solidosdes.last()->posicion(650,a);
+    solidosdes.last()->posicionod(650,a);
     if(a==405) a=455;
     if(a==355) a=405;
     if(a==305) a=355;
@@ -184,7 +198,6 @@ void MainWindow::keyPressEvent(QKeyEvent *event){
     if(event->key()==Qt::Key_Space) explotar();
 
     if(event->key()== Qt::Key_A && player1->getX()>0){//colisiona con los bordes
-
         if (colicion()==true) player1->setX(player1->getX()+10);
 
         player1->setX(player1->getX()-5);
@@ -240,7 +253,7 @@ bool MainWindow::colicion() //Colision con obstaculo
 void MainWindow::explotar()
 {
     bombap= new bomba();
-    bombap->posicion(player1->getX(),player1->getY());
+    bombap->posicionb(player1->getX(),player1->getY());
     scene->addItem(bombap);
 
     timer = new QTimer();
@@ -254,39 +267,39 @@ void MainWindow::explotarbum()
             scene->removeItem(bombap);
 
             bum.push_back(new explosion);
-            bum.last()->posicion(bombap->getX(),bombap->getY());
+            bum.last()->posicionex(bombap->getX(),bombap->getY());
             scene->addItem(bum.last());
 
             bum.push_back(new explosion);
-            bum.last()->posicion(bombap->getX()+50,bombap->getY());
+            bum.last()->posicionex(bombap->getX()+50,bombap->getY());
             scene->addItem(bum.last());
 
             bum.push_back(new explosion);
-            bum.last()->posicion(bombap->getX()+100,bombap->getY());
+            bum.last()->posicionex(bombap->getX()+100,bombap->getY());
             scene->addItem(bum.last());
 
             bum.push_back(new explosion);
-            bum.last()->posicion(bombap->getX()-50,bombap->getY());
+            bum.last()->posicionex(bombap->getX()-50,bombap->getY());
             scene->addItem(bum.last());
 
             bum.push_back(new explosion);
-            bum.last()->posicion(bombap->getX()-10,bombap->getY());
+            bum.last()->posicionex(bombap->getX()-10,bombap->getY());
             scene->addItem(bum.last());
 
             bum.push_back(new explosion);
-            bum.last()->posicion(bombap->getX(),bombap->getY()+50);
+            bum.last()->posicionex(bombap->getX(),bombap->getY()+50);
             scene->addItem(bum.last());
 
             bum.push_back(new explosion);
-            bum.last()->posicion(bombap->getX(),bombap->getY()+100);
+            bum.last()->posicionex(bombap->getX(),bombap->getY()+100);
             scene->addItem(bum.last());
 
             bum.push_back(new explosion);
-            bum.last()->posicion(bombap->getX(),bombap->getY()-50);
+            bum.last()->posicionex(bombap->getX(),bombap->getY()-50);
             scene->addItem(bum.last());
 
             bum.push_back(new explosion);
-            bum.last()->posicion(bombap->getX(),bombap->getY()-100);
+            bum.last()->posicionex(bombap->getX(),bombap->getY()-100);
             scene->addItem(bum.last());
 
 
@@ -300,16 +313,19 @@ void MainWindow::explotarbum()
 
 void MainWindow::removerbum()
 {
-    for(int i=0;i< bum.size(); i++){
-        for (int j=0; j < solidosdes.size();j++){
-        explosion *e= bum.at(i);
-        obstaculodes *o=solidosdes.at(i);
+    for (int j=0; j < solidosdes.size();j++){
+            obstaculodes *o=solidosdes.at(j);
+            for(auto item : bum){
+                if(item->collidesWithItem(o)){
 
-        if(e->collidesWithItem(o)){
-            scene->removeItem(e);
-            scene->removeItem(o);
+                    scene->removeItem(item);
+                    scene->removeItem(o);
+                    bum.removeOne(item);
+                    solidosdes.removeOne(o);
 
-        }
+                }
+            }
     }
-}
+
+    for(auto item:bum) scene->removeItem(item);
 }

@@ -10,6 +10,7 @@
 #include "obstaculo.h"
 #include "obstaculodes.h"
 #include "bomba.h"
+#include "enemigo.h"
 #include <QList>
 #include <QGraphicsItem>
 
@@ -43,6 +44,7 @@ private:
     obstaculodes *obdes;
     bomba *bombap;
     QList <explosion* > bum;
+    enemigo *enemigorand;
 
     /*
     QGraphicsRectItem *rect;

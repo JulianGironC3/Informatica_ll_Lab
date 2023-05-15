@@ -8,7 +8,7 @@ class obstaculodes : public QObject, public QGraphicsPixmapItem
     Q_OBJECT
 public:
     obstaculodes(QGraphicsItem* carr = 0);
-    void posicion(int x, int y);
+    void posicionod(int x, int y);
 
 private:
     QGraphicsRectItem *obdes;

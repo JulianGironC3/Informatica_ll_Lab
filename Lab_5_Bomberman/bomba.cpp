@@ -6,7 +6,7 @@ bomba::bomba(QGraphicsItem *carr) : QGraphicsPixmapItem(carr)
 
 }
 
-void bomba::posicion(int _x, int _y)
+void bomba::posicionb(int _x, int _y)
 {
     x=_x;
     y=_y;
@@ -16,7 +16,7 @@ void bomba::posicion(int _x, int _y)
 void bomba::explocion(int x,int y)
 {
     explocionf = new explosion();
-    explocionf->posicion(getY(),getX());
+    explocionf->posicionex(getY(),getX());
 
 }
 
