@@ -39,16 +39,16 @@ void enemigo::setY(int newY)
 
 void enemigo::mov()
 {
-    if(getX()>=0 and getX()<=650) setX(getX()-50);
+    if(getX()>0 and getX()<650) setX(getX()-50);
     else setX(getX()+50);
 
     if(getY()>0) setY(getY()+50);
     else setY(getY()-50);
 
-    if(getX()>=650) setX(getX()+50);
+    if(getX()>650) setX(getX()+50);
     else setX(getX()-50);
 
-    if(getY()<=450) setY(getY()+50);
+    if(getY()<450) setY(getY()+50);
     else setY(getY()-50);
 
     posicione(getX(),getY());

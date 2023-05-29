@@ -316,12 +316,13 @@ void MainWindow::removerbum()
     for (int j=0; j < solidosdes.size();j++){
             obstaculodes *o=solidosdes.at(j);
             for(auto item : bum){
-                if(item->collidesWithItem(o)){
+                if(item->collidesWithItem(o) or item->collidingItems(enemigorand)){
 
                     scene->removeItem(item);
                     scene->removeItem(o);
                     bum.removeOne(item);
                     solidosdes.removeOne(o);
+                    scene->removeItem(enemigorand);
 
                 }
             }
